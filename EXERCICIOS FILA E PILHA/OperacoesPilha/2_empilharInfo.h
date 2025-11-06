@@ -4,7 +4,7 @@
 void empilharInfo(pDPilha pd, void *info){
 
     if(pd != NULL)
-        incluirInfoFim(pd->Lista, info);
+        incluirInfo(pd->Lista, info);
 
 }
 

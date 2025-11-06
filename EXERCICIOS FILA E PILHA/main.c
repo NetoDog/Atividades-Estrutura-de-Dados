@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "C:\Users\Windows 10 pro\Documents\GitHub\Atividades-Estrutura-de-Dados\Ulilidades\Utils.h"
+#include "Utils.h"
 #include "Pilha.h"
 #include "Fila.h"
-
 
 int main(){
 
@@ -15,20 +14,8 @@ int main(){
     pDPilha pdp2 = criarPilha();
     pDPilha intersec;
 
-    pDFila test = criarFila(); void* info;
-    enfileirarInfo(test, alocaInt(1));
-    enfileirarInfo(test, alocaInt(2));
-    enfileirarInfo(test, alocaInt(3));
-    do{
-        info = desenfileirarInfo(test);
-        if(info != NULL)
-            imprimeInt(info);
-    }while(info != NULL);
-    printf("\n");
-
-
     //exercicio 1
-   
+    void* info;
     enfileirarInfo(pdf, alocaInt(1));
     enfileirarInfo(pdf, alocaInt(2));
     enfileirarInfo(pdf, alocaInt(3));

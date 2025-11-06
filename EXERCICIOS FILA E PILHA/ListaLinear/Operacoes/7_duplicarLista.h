@@ -3,21 +3,19 @@
 
 pDLista duplicarLista(pDLista pd, FuncaoAlocacao fa)
 {
+    pDLista pNovaLista = criarLista();
 
-    pDLista novaLista;
-    novaLista = criarLista();
+    pNoh atual = pd->primeiro;
+    while (atual != NULL)
+    {
+       /* aloca memoria e copia do valor do campo info */
+       void *auxInfo = fa(atual->info);
+       /* adiciona a copia da informacao na nova lista */
+       incluirInfo(pNovaLista, auxInfo);
 
-    pNoh atual;
-    atual = pd->inicio;
-    while (atual != NULL){
-
-        void * novaInfo = fa(atual->info);
-        incluirInfoFim(novaLista, novaInfo);
-
-        atual = atual->prox;
+       atual = atual->prox;
     }
-
-    return novaLista;
+    return pNovaLista;
 }
 
 #endif

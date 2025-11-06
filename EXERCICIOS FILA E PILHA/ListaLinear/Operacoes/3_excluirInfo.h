@@ -1,33 +1,36 @@
-#ifndef EXCLUIR_INFO_H
-#define EXCLUIR_INFO_H
-
 int excluirInfo(pDLista pd, void *info, FuncaoComparacao pfc){
 
-    pNoh atual, anterior;
-    atual = pd->inicio;
-    anterior = NULL;
-    while (atual != NULL){
+    pNoh atual, ant;
 
-        if (pfc(info, atual->info) == 0){
+    atual = pd->primeiro;
+    ant   = NULL;
 
-            if(atual == pd->inicio){
-               pd->inicio = atual->prox;
-               //inicio = inicio->prox;
-            }else{
-                if(atual == pd->fim){
-                   pd->fim = anterior;
-                }
-               anterior->prox = atual->prox;
-            }
-            free(atual);
-            pd->quantidade--;
-            return 1;
-        }
-        anterior = atual;
-        atual = atual->prox;
+    /* encontra a informação na lista */
+    while(atual != NULL){
+       if (pfc(atual->info, info) == 0)
+          break;
+       ant   = atual;
+       atual = atual->prox;
+    }
+
+    /* verifica se a info existe na lista */
+    if (atual != NULL){
+        /* eh o primeiro da lista */
+        if (atual == pd->primeiro)
+            pd->primeiro = atual->prox;
+        else
+        /* eh o ultimo da lista */
+        if (atual == pd->ultimo){
+            pd->ultimo = ant;
+            ant->prox  = NULL;
+        } else
+             /* estah no meio da lista */
+             ant->prox = atual->prox;
+
+        pd->quantidade--;
+        free(atual);
+        return 1;
     }
 
     return 0;
 }
-
-#endif

@@ -4,7 +4,7 @@
 void enfileirarInfo(pDFila pd, void *info){
 
     if(pd != NULL)
-        incluirInfoFim(pd->Lista, info);
+        incluirInfo(pd->Lista, info);
 
 }
 
