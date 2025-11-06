@@ -15,8 +15,20 @@ int main(){
     pDPilha pdp2 = criarPilha();
     pDPilha intersec;
 
+    pDFila test = criarFila(); void* info;
+    enfileirarInfo(test, alocaInt(1));
+    enfileirarInfo(test, alocaInt(2));
+    enfileirarInfo(test, alocaInt(3));
+    do{
+        info = desenfileirarInfo(test);
+        if(info != NULL)
+            imprimeInt(info);
+    }while(info != NULL);
+    printf("\n");
+
+
     //exercicio 1
-    void* info;
+   
     enfileirarInfo(pdf, alocaInt(1));
     enfileirarInfo(pdf, alocaInt(2));
     enfileirarInfo(pdf, alocaInt(3));

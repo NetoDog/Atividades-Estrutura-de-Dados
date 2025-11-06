@@ -9,6 +9,7 @@
 #include "2_2_incluirInfoMeio.h"
 
 #include "3_excluirInfo.h"
+#include "3_1_excluirInfoPos.h"
 #include "3_excluirInfoTotal.h"
 
 #include "4_contemInfo.h"

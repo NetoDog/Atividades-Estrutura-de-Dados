@@ -4,7 +4,7 @@ void* excluirInfoPos(pDLista pd, int pos){
 
     pNoh atual, ant;
 
-    atual = pd->primeiro;
+    atual = pd->inicio;
     ant   = NULL;
 
     /* encontra o noh correspondente a posicao informada */
@@ -17,12 +17,12 @@ void* excluirInfoPos(pDLista pd, int pos){
     /* verifica se a info existe na lista */
     if (atual != NULL){
         /* eh o primeiro da lista */
-        if (atual == pd->primeiro)
-            pd->primeiro = atual->prox;
+        if (atual == pd->inicio)
+            pd->inicio = atual->prox;
         else
         /* eh o ultimo da lista */
-        if (atual == pd->ultimo){
-            pd->ultimo = ant;
+        if (atual == pd->fim){
+            pd->fim = ant;
             ant->prox  = NULL;
         } else
              /* estah no meio da lista */
