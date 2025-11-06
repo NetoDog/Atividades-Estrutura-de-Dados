@@ -1,12 +1,17 @@
+#ifndef IMPRIMIR_LISTA_H
+#define IMPRIMIR_LISTA_H
+
 void imprimirLista(pDLista pd, FuncaoImpressao pfi){
 
-    pNoh aux;
-    aux = pd->primeiro;
+    pNoh atual;
 
-    while(aux != NULL){
-       /*printf("%d", *(((int *)aux->info)));*/
-       pfi(aux->info);
+    atual = pd->inicio;
+    while (atual != NULL){
 
-       aux = aux->prox;
+        pfi(atual->info);
+        atual = atual->prox;
     }
+
 }
+
+#endif

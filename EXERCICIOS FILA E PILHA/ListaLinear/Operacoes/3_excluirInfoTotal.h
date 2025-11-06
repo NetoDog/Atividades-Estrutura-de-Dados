@@ -1,7 +1,9 @@
-#ifndef EXCLUIR_INFO_H
-#define EXCLUIR_INFO_H
+#ifndef EXCLUIR_INFO_TOTAL_H
+#define EXCLUIR_INFO_TOTAL_H
 
-int excluirInfo(pDLista pd, void *info, FuncaoComparacao pfc){
+int excluirInfoTotal(pDLista pd, void *info,
+                FuncaoComparacao pfc,
+                FuncaoLiberacao  pfl){
 
     pNoh atual, anterior;
     atual = pd->inicio;
@@ -19,6 +21,8 @@ int excluirInfo(pDLista pd, void *info, FuncaoComparacao pfc){
                 }
                anterior->prox = atual->prox;
             }
+            pfl(atual->info);
+            pfl(info);
             free(atual);
             pd->quantidade--;
             return 1;
