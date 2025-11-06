@@ -1,6 +1,8 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include <stdio.h>
+
 /* ---------------------------------------- */
 /* tipo de dado INT */
 /* ---------------------------------------- */
@@ -10,9 +12,9 @@ int comparaInt(void *info1, void *info2){
     return *p2 - *p1;
 }
 /* ---------------------------------------- */
-void imprimeInt(void *info, int pos){
+void imprimeInt(void *info){
    int *pi = (int *) info;
-   printf("Lista[%d] = %d\n", pos, *pi);
+   printf("%d - ", *pi);
 }
 /* ---------------------------------------- */
 void* alocaInfoInt(void *info){
@@ -27,10 +29,33 @@ int* alocaInt(int n){
    return pi;
 }
 
+float* alocaFloat(float n){
+   float *pi = (float *) malloc(sizeof(float));
+   *pi = n;
+   return pi;
+}
+
+/* ---------------------------------------- */
 void liberaInt(void * info){
-   int * temp;
-   temp = (int*) info;
-   free(temp);
+   int* pi = (int*) info;
+   free(pi);
+}
+
+void liberaFloat(void * info){
+   float* pi = (float*) info;
+   free(pi);
+}
+
+char* alocaInfoChar(void * info){
+   char *pc = (char *) malloc(sizeof(char));
+   *pc = *(char*)info;
+   return pc;
+}
+
+char* extraiString(void * info){
+   char* pc;
+   pc = (char*) info;
+   return pc;
 }
 
 /* ---------------------------------------- */

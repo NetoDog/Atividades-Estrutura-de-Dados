@@ -1,0 +1,3 @@
+#ifndef PERSISTENCIA_H
+#define PERSISTENCIA_H
+
